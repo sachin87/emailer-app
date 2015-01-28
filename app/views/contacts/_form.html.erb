@@ -1,29 +1,12 @@
-<%= form_for(@contact) do |f| %>
-  <% if @contact.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@contact.errors.count, "error") %> prohibited this contact from being saved:</h2>
+<%= simple_form_for @contact, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :first_name %>
+  <%= error_span(@contact[:first_name]) %>
+  <%= f.input :last_name %>
+  <%= error_span(@contact[:last_name]) %>
+  <%= f.input :email %>
+  <%= error_span(@contact[:email]) %>
 
-      <ul>
-      <% @contact.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                contacts_path, :class => 'btn btn-default' %>
 <% end %>
