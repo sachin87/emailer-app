@@ -12,7 +12,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -30,11 +30,21 @@ gem 'spring',        group: :development
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn', group: :production
+gem 'thin', group: :production
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]
+
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'devise'
+gem 'sidekiq'
+gem 'jquery-tokeninput-rails'
+gem 'ckeditor'
+gem 'carrierwave'
+gem 'haml'
+gem 'simple_form'
 
