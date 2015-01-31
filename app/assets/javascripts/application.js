@@ -15,4 +15,11 @@
 //= require twitter/bootstrap
 //= require turbolinks
 //= require ckeditor/init
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+
+$(document).ready(function(){
+    $('.datetimepicker').datetimepicker();
+});
