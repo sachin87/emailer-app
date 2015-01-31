@@ -38,13 +38,14 @@ gem 'thin', group: :production
 
 # Use debugger
 gem 'debugger', group: [:development, :test]
-
+gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+gem 'simple_form'
 gem 'devise'
 gem 'sidekiq'
 gem 'jquery-tokeninput-rails'
 gem 'ckeditor'
 gem 'carrierwave'
+gem 'mini_magick'
 gem 'haml'
-gem 'simple_form'
 
