@@ -4,7 +4,11 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.all
+    @contacts = Contact.order(:first_name)
+    respond_to do |format|
+      format.html
+      format.json { render :json => @contacts.tokens(params[:q]) }
+    end
   end
 
   # GET /contacts/1

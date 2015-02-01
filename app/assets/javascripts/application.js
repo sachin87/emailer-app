@@ -17,9 +17,20 @@
 //= require ckeditor/init
 //= require moment
 //= require bootstrap-datetimepicker
+//= require chosen-jquery
+//= require jquery.tokeninput
 //= require_tree .
 
 
 $(document).ready(function(){
-    $('.datetimepicker').datetimepicker();
+    $('.datetimepicker').datetimepicker({format: "dd MM yyyy - hh:ii"});
+
+    $("#message_receiver_tokens").tokenInput("/contacts.json", {
+        crossDomain: false,
+        prePopulate: $(this).data("pre"),
+        theme: "facebook",
+        hintText: 'Type in an email',
+        noResultsText: 'No contact found with given email',
+        preventDuplicates: true
+    });
 });
