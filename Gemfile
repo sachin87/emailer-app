@@ -54,3 +54,5 @@ gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'sinatra', :require => nil
 gem 'dotenv-rails', :groups => [:development, :test]
+gem 'rails_12factor'
+ruby '2.1.1'
