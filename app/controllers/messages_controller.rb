@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :set_message, only: [:show, :edit, :update, :destroy, :send_email]
 
   # GET /messages
   # GET /messages.json
@@ -59,6 +59,13 @@ class MessagesController < ApplicationController
       format.html { redirect_to messages_url, notice: 'Message was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def send_email
+    #ScheduleMail.perform_in(@message.schedule_date,@message)
+    message_id = @message.id
+    ScheduleMail.perform_async(message_id)
+    render :nothing => true
   end
 
   private

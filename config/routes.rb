@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  mount Sidekiq::Web, at: '/sidekiq'
   mount Ckeditor::Engine => '/ckeditor'
   resources :contacts
 
-  resources :messages
+  resources :messages do
+    member do
+      post :send_email
+    end
+  end
 
   root to: 'messages#index'
 

@@ -93,6 +93,9 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     eventmachine (1.0.4)
     execjs (2.2.2)
@@ -129,6 +132,8 @@ GEM
     orm_adapter (0.5.0)
     polyglot (0.3.5)
     rack (1.5.2)
+    rack-protection (1.5.3)
+      rack
     rack-test (0.6.3)
       rack (>= 1.0)
     rails (4.1.5)
@@ -174,6 +179,10 @@ GEM
     simple_form (3.1.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    sinatra (1.4.5)
+      rack (~> 1.4)
+      rack-protection (~> 1.4)
+      tilt (~> 1.3, >= 1.3.4)
     spring (1.2.0)
     sprockets (2.12.3)
       hike (~> 1.2)
@@ -225,6 +234,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   debugger
   devise
+  dotenv-rails
   haml
   jbuilder (~> 2.0)
   jquery-rails
@@ -237,6 +247,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   sidekiq
   simple_form
+  sinatra
   spring
   sqlite3
   therubyracer

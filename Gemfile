@@ -43,7 +43,6 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 gem 'simple_form'
 gem 'devise'
 gem 'sidekiq'
-gem 'jquery-tokeninput-rails'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
@@ -52,3 +51,5 @@ gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
+gem 'sinatra', :require => nil
+gem 'dotenv-rails', :groups => [:development, :test]

@@ -5,9 +5,9 @@ module ApplicationHelper
       [].to_json
     else
       object.receivers.map do |receiver|
-         {"id" => object.receiver.try(:id), "name" => object.receiver.try(:email) }
-      end
-    end.to_json
+         {"id" => receiver.try(:id), "name" => receiver.try(:email) }
+      end.to_json
+    end
   end
 
 end

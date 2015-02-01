@@ -14,4 +14,10 @@ class Message < ActiveRecord::Base
   end
 
 
+  def delivered!(contact)
+    messages_contact = messages_contacts.where(receiver_id: contact.id).first
+    messages_contact.delivered = true
+    messages_contact.save
+  end
+
 end
