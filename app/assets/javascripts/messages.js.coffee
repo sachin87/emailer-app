@@ -8,8 +8,3 @@ $ ->
 #    allow_single_deselect: true
 #    no_results_text: 'No results matched'
 #    width: '200px'
-
-(->
-  window["CKEDITOR_BASEPATH"] = "/assets/ckeditor/"  if typeof window["CKEDITOR_BASEPATH"] is "undefined" or window["CKEDITOR_BASEPATH"] is null
-  return
-).call this

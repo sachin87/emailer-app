@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require turbolinks
+//= require ckeditor/override
 //= require ckeditor/init
 //= require moment
 //= require bootstrap-datetimepicker
@@ -34,3 +35,9 @@ $(document).ready(function(){
         preventDuplicates: true
     });
 });
+
+(function() {
+    if (typeof window['CKEDITOR_BASEPATH'] === "undefined" || window['CKEDITOR_BASEPATH'] === null) {
+        window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";
+    }
+}).call(this);
