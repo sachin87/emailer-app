@@ -18,7 +18,4 @@ class Contact < ActiveRecord::Base
     tokens.split(',')
   end
 
-  def name_with_email
-    [first_name, last_name, email].compact.join(':')
-  end
 end

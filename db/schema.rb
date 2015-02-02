@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20150202054402) do
     t.boolean  "enqueued",      default: false
   end
 
-  add_index "messages", ["enqueued"], name: "index_messages_on_enqueued"
+  add_index "messages", ["enqueued"], name: "index_messages_on_scheduled_date"
   add_index "messages", ["processed"], name: "index_messages_on_processed"
   add_index "messages", ["schedule_date"], name: "index_messages_on_schedule_date"
 

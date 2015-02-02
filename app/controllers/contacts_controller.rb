@@ -4,7 +4,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.order(:first_name)
+    @contacts = Contact.order(:created_at)
     respond_to do |format|
       format.html
       format.json { render :json => @contacts.tokens(params[:q]) }
@@ -73,6 +73,6 @@ class ContactsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:first_name, :last_name, :email)
+      params.require(:contact).permit(:email)
     end
 end
