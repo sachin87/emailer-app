@@ -68,7 +68,8 @@ class MessagesController < ApplicationController
   def send_email
     #ScheduleMail.perform_in(@message.schedule_date,@message)
     message_id = @message.id
-    ScheduleMail.perform_async(message_id)
+    #ScheduleMail.perform_async(message_id)
+    ScheduleMail.perform_in(@message.schedule_date,message_id)
     @message.enqueued = true
     @message.save
     redirect_to message_path(@message)

@@ -21,11 +21,6 @@
 //= require jquery.tokeninput
 //= require_tree .
 
-
-$(document).ready(function(){
-    $('.datetimepicker').datetimepicker({format: 'DD-MM-YYYY hh:mm'});
-});
-
 (function() {
     if (typeof window['CKEDITOR_BASEPATH'] === "undefined" || window['CKEDITOR_BASEPATH'] === null) {
         window['CKEDITOR_BASEPATH'] = "/assets/ckeditor/";
