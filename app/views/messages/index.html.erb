@@ -22,8 +22,10 @@
         <td><%= message.body %></td>
         <td><%=l message.created_at %></td>
         <td>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_message_path(message), :class => 'btn btn-default btn-xs' %>
+          <% unless message.enqueued? %>
+            <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                        edit_message_path(message), :class => 'btn btn-default btn-xs' %>
+          <% end %>
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       message_path(message),
                       :method => :delete,

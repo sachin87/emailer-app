@@ -6,6 +6,8 @@ class ScheduleMail
     message.receivers.each do |receiver|
       UserMailer.schedule_email(message_id,receiver).deliver
     end
+    message.processed = true
+    message.save
   end
 
 end

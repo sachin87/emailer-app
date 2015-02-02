@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202053550) do
+ActiveRecord::Schema.define(version: 20150202054402) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 20150202053550) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "processed",     default: false
+    t.boolean  "enqueued",      default: false
   end
 
+  add_index "messages", ["enqueued"], name: "index_messages_on_enqueued"
   add_index "messages", ["processed"], name: "index_messages_on_processed"
   add_index "messages", ["schedule_date"], name: "index_messages_on_schedule_date"
 

@@ -9,6 +9,8 @@ class Message < ActiveRecord::Base
   has_many :authors, :through => :authorships
   attr_reader :receiver_tokens
 
+  before_save :have_receivers?
+
   def receiver_tokens=(tokens)
     self.receiver_ids = Contact.ids_from_tokens(tokens)
   end
@@ -19,5 +21,11 @@ class Message < ActiveRecord::Base
     messages_contact.delivered = true
     messages_contact.save
   end
+
+  private
+
+    def have_receivers?
+       receivers.any?
+    end
 
 end

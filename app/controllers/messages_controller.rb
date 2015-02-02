@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def scheduled_mails
-    @messages = Message.all
+    @messages = Message.where(processed: false)
   end
 
   # GET /messages/1
@@ -69,7 +69,9 @@ class MessagesController < ApplicationController
     #ScheduleMail.perform_in(@message.schedule_date,@message)
     message_id = @message.id
     ScheduleMail.perform_async(message_id)
-    render :nothing => true
+    @message.enqueued = true
+    @message.save
+    redirect_to message_path(@message)
   end
 
   private
