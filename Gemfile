@@ -23,36 +23,39 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',        group: :development
-
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
-# Use unicorn as the app server
-gem 'unicorn', group: :production
-gem 'thin', group: :production
-gem 'pg'
+group :production do
+  gem 'unicorn'
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+group :development do
+  gem 'thin'
+  gem 'spring'
+end
+
+group [:development. :test] do
+  gem 'debugger'
+  gem 'dotenv-rails'
+end
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 # Use debugger
-gem 'debugger', group: [:development, :test]
 gem "less-rails"
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 gem 'simple_form'
-gem 'devise'
 gem 'sidekiq'
 gem 'ckeditor'
 gem 'carrierwave'
 gem 'mini_magick'
-gem 'haml'
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'sinatra', :require => nil
-gem 'dotenv-rails', :groups => [:development, :test]
-gem 'rails_12factor'
 ruby '2.0.0'
