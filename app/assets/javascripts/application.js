@@ -23,7 +23,7 @@
 
 
 $(document).ready(function(){
-    $('.datetimepicker').datetimepicker({format: "dd MM yyyy - hh:ii"});
+    $('.datetimepicker').datetimepicker({format: 'DD-MM-YYYY hh:mm'});
 
     $("#message_receiver_tokens").tokenInput("/contacts.json", {
         crossDomain: false,
