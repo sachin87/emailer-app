@@ -40,6 +40,8 @@ end
 group :development, :test do
   gem 'debugger'
   gem 'dotenv-rails'
+  gem 'rspec-rails', '~> 3.0'
+  gem 'factory_girl_rails'
 end
 
 # Use Capistrano for deployment
