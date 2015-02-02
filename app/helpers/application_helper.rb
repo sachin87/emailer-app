@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
 
+  def time_zones
+    @time_zones ||= ActiveSupport::TimeZone.all.map{|tz| [[tz.name, tz.formatted_offset].join(" "), tz.name]}
+  end
+
 end

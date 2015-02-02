@@ -69,7 +69,8 @@ class MessagesController < ApplicationController
     #ScheduleMail.perform_in(@message.schedule_date,@message)
     message_id = @message.id
     #ScheduleMail.perform_async(message_id)
-    ScheduleMail.perform_in(@message.schedule_date,message_id)
+    datetime = ActiveSupport::TimeZone[@message.time_zone].parse(@message.schedule_date)
+    ScheduleMail.perform_in(datetime,message_id)
     @message.enqueued = true
     @message.save
     redirect_to message_path(@message)
@@ -83,6 +84,6 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:schedule_date, :subject, :body, :receiver_tokens)
+      params.require(:message).permit(:schedule_date, :subject, :body, :time_zone, :receiver_tokens)
     end
 end
