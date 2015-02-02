@@ -8,9 +8,12 @@ Rails.application.routes.draw do
     member do
       post :send_email
     end
+    collection do
+      get :scheduled_mails
+    end
   end
 
-  root to: 'messages#index'
+  root to: 'messages#scheduled_mails'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
