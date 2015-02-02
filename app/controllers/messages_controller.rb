@@ -8,7 +8,7 @@ class MessagesController < ApplicationController
   end
 
   def scheduled_mails
-    @messages = Message.where(processed: false).order(:scheduled_date)
+    @messages = Message.where(processed: false).order(:schedule_date)
   end
 
   # GET /messages/1
