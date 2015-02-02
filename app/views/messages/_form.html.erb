@@ -1,6 +1,6 @@
 <%= simple_form_for @message, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :receiver_tokens, label: false, :input_html => {"data-pre" => contact_tokens(@message) }, hint: '*Add more contacts through contacts form' %>
-  <%= f.input :time_zone, as: :select, collection: time_zones, prompt: 'Please select.....' %>
+  <%= f.input :receiver_tokens, label: false, :input_html => {"data-pre" => contact_tokens(@message) }, hint: '*Add more contacts through contacts form', label => 'To:' %>
+  <%= f.input :time_zone, as: :select, collection: time_zones, prompt: 'Please select a time zone...' %>
   <%= f.input :schedule_date, as: :string, input_html: {class: 'datetimepicker', 'data-format' => "dd/MM/yyyy hh:mm:ss" } %>
   <%= f.input :subject, hint: 'Add Email subject' %>
   <%= f.input :body, as: :ckeditor %>
