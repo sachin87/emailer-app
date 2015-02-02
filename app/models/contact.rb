@@ -4,6 +4,7 @@ class Contact < ActiveRecord::Base
   has_many :messages, through: :messages_contacts
 
   validates :email, presence: true
+  validates_format_of :email, with: /^.+@.+$/
 
   def self.tokens(query)
     where("email like ?", "%#{query}%").map do |contact|
