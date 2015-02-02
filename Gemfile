@@ -37,7 +37,7 @@ group :development do
   gem 'spring'
 end
 
-group [:development. :test] do
+group :development, :test do
   gem 'debugger'
   gem 'dotenv-rails'
 end
