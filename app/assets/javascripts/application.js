@@ -24,15 +24,6 @@
 
 $(document).ready(function(){
     $('.datetimepicker').datetimepicker({format: 'DD-MM-YYYY hh:mm'});
-
-    $("#message_receiver_tokens").tokenInput("/contacts.json", {
-        crossDomain: false,
-        prePopulate: $(this).data("pre"),
-        theme: "facebook",
-        hintText: 'Type in an email',
-        noResultsText: 'No contact found with given email',
-        preventDuplicates: true
-    });
 });
 
 (function() {
