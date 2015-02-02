@@ -3,14 +3,11 @@ class Message < ActiveRecord::Base
   has_many :messages_contacts, class_name: 'MessageContact'
   has_many :receivers, class_name: 'Contact', through: :messages_contacts
 
-  validates :schedule_date, :subject, :body, presence: true
+  validates :schedule_date, :subject, :body,:time_zone, presence: true
   validates :time_zone,
             inclusion: {
               in: ActiveSupport::TimeZone.all.map(&:name)
             }
-
-  has_many :authorships
-  has_many :authors, :through => :authorships
   attr_reader :receiver_tokens
 
   before_save :have_receivers?

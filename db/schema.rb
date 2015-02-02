@@ -45,7 +45,10 @@ ActiveRecord::Schema.define(version: 20150202085639) do
     t.datetime "updated_at"
   end
 
+  add_index "message_contacts", ["delivered"], name: "index_message_contacts_on_delivered"
+  add_index "message_contacts", ["message_id"], name: "index_message_contacts_on_message_id"
   add_index "message_contacts", ["receiver_id", "message_id", "delivered"], name: "combine_index"
+  add_index "message_contacts", ["receiver_id"], name: "index_message_contacts_on_receiver_id"
 
   create_table "messages", force: true do |t|
     t.string   "schedule_date"
