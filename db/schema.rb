@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150131092829) do
+ActiveRecord::Schema.define(version: 20150202035636) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20150131092829) do
     t.datetime "updated_at"
   end
 
+  add_index "contacts", ["email"], name: "index_contacts_on_email"
+
   create_table "message_contacts", force: true do |t|
     t.integer  "receiver_id"
     t.integer  "message_id"
@@ -45,6 +47,8 @@ ActiveRecord::Schema.define(version: 20150131092829) do
     t.datetime "updated_at"
   end
 
+  add_index "message_contacts", ["receiver_id", "message_id", "delivered"], name: "combine_index"
+
   create_table "messages", force: true do |t|
     t.datetime "schedule_date"
     t.string   "subject"
@@ -52,5 +56,7 @@ ActiveRecord::Schema.define(version: 20150131092829) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "messages", ["schedule_date"], name: "index_messages_on_schedule_date"
 
 end
