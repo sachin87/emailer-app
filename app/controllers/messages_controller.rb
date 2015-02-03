@@ -73,7 +73,9 @@ class MessagesController < ApplicationController
     ScheduleMail.perform_in(datetime,message_id)
     @message.enqueued = true
     @message.save
-    redirect_to message_path(@message)
+    respond_to do |format|
+      format.html { redirect_to scheduled_mails_messages_path, notice: 'Message is enqueued.' }
+    end
   end
 
   private
