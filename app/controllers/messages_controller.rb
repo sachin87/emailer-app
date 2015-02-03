@@ -4,11 +4,11 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @messages = Message.order(:created_at).page(params[:page]).all
   end
 
   def scheduled_mails
-    @messages = Message.where(processed: false, enqueued: true).order(:schedule_date)
+    @messages = Message.where(processed: false, enqueued: true).order(:schedule_date).page params[:page]
   end
 
   # GET /messages/1

@@ -62,4 +62,5 @@ gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'sinatra', :require => nil
 gem "fog"
+gem 'kaminari'
 ruby '2.0.0'
