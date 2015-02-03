@@ -4,6 +4,8 @@
 </div>
 
 <dl class="dl-horizontal">
+  <dt><strong>Receivers:</strong></dt>
+  <dd><%= @message.receivers.map(&:email).join(',') %></dd>
   <dt><strong><%= model_class.human_attribute_name(:schedule_date) %>:</strong></dt>
   <dd><%= @message.schedule_date %></dd>
   <dt><strong><%= model_class.human_attribute_name(:subject) %>:</strong></dt>
