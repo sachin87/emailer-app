@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.order(:created_at).page(params[:page]).all
+    @messages = Message.order(created_at: :desc).page(params[:page]).all
   end
 
   def scheduled_mails
