@@ -61,4 +61,5 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.0.0'
 gem 'chosen-rails'
 gem 'jquery-tokeninput-rails'
 gem 'sinatra', :require => nil
+gem "fog"
 ruby '2.0.0'
