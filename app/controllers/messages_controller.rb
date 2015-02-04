@@ -8,7 +8,8 @@ class MessagesController < ApplicationController
   end
 
   def scheduled_mails
-    @messages = Message.where(processed: false, enqueued: true).order(:schedule_date).page params[:page]
+    @messages = Message.where(processed: false, enqueued: true).sort_by { |m| m.scheduled_datetime_with_timezone}
+    @messages = Kaminari.paginate_array(@messages).page params[:page]
   end
 
   # GET /messages/1
@@ -69,7 +70,7 @@ class MessagesController < ApplicationController
     #ScheduleMail.perform_in(@message.schedule_date,@message)
     message_id = @message.id
     #ScheduleMail.perform_async(message_id)
-    datetime = ActiveSupport::TimeZone[@message.time_zone].parse(@message.schedule_date)
+    datetime = @message.scheduled_datetime_with_timezone
     ScheduleMail.perform_in(datetime,message_id)
     @message.enqueued = true
     @message.save

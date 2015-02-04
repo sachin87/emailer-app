@@ -23,6 +23,10 @@ class Message < ActiveRecord::Base
     messages_contact.save
   end
 
+  def scheduled_datetime_with_timezone
+    ActiveSupport::TimeZone[time_zone].parse(schedule_date)
+  end
+
   private
 
     def have_receivers?
